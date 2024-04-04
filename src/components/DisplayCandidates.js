@@ -20,9 +20,6 @@ const DisplayCandidates = () => {
                 </div>
                 {candidates.map((candidate) => {
                     return <VoteCard key={candidate._id} candidate={candidate} />
-                    // <div key={candidate._id} className="col-md-3">
-                    //     <CandidateItem updateCandidate={updateCandidate} candidate={candidate} />
-                    // </div>
                 })}
             </div>
         </>
