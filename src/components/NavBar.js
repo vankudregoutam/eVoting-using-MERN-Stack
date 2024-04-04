@@ -17,7 +17,7 @@ const NavBar = () => {
                                 <Link className={`nav-link ${location.pathname === '/adminlogin' ? 'active' : ''}`} aria-current="page" to="/adminlogin">Admin</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">About</Link>
+                                <Link className={`nav-link ${location.pathname === '/demo' ? 'active' : ''}`} to="/demo">Demo</Link>
                             </li>
                         </ul>
                         <form className="d-flex">

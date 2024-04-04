@@ -10,7 +10,7 @@ const FinalPage = () => {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Your vote has been saved",
             showConfirmButton: false,
             timer: 1500
         });
