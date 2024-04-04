@@ -8,7 +8,6 @@ const CandidateItem = (props) => {
     return (
         <div className='col-md-3'>
             <div className="card my-3">
-                {/* <img src="..." className="card-img-top" alt="..."> */}
                 <div className="card-body">
                     <h5 className="card-title">{candidate.partyname}</h5>
                     <p className="card-text">{candidate.name}</p>

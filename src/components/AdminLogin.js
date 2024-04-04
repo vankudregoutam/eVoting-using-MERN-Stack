@@ -8,7 +8,6 @@ const AdminLogin = () => {
     const [credentials, setCredentials] = useState({ id: '', password: '' })
 
     const handleSubmit = async (e) => {
-        // debugger
         e.preventDefault()
         const response = await fetch(`http://localhost:5000/api/auth/admin-login`, {
             method: "POST",

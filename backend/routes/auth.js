@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchUser = require('../middleware/fetchUser');
 const Admin = require('../models/Admin');
-// var fetchUser = require('../middleware/fetchUser')
 
 const JWT_SECRET = 'KMAKHIUJEN:WPJHWOEDUHWEO#IWBEI';
 
@@ -39,7 +38,6 @@ router.post('/createuser', [
                 dob: req.body.dob,
                 pass: secPass,
                 conPass: secConPass,
-                // upVote
             })
 
             const data = {

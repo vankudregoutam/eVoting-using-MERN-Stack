@@ -1,18 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import Webcam from 'react-webcam'
 
 const UserSignUp = () => {
-
-    // const [image, setImage] = useState(null);
-
-    // const webcamRef = React.useRef(null);
-
-    // const capture = React.useCallback(() => {
-    //     const imageSrc = webcamRef.current.getScreenshot();
-    //     setImage(imageSrc);
-    //     // Now you can send the captured image to the Face API and store the data in MongoDB.
-    // }, [webcamRef]);
 
     const navigate = useNavigate()
 
@@ -73,19 +62,6 @@ const UserSignUp = () => {
                                         <label htmlFor="cpassword" className="form-label col-sm-4">Confirm Password</label>
                                         <input type="password" className="form-control col-sm-10 w-50" autoComplete='off' value={credentials.cpassword} onChange={onChange} id="cpassword" name='cpassword' />
                                     </div>
-                                    {/* <div className="mb-3 row">
-                                        <label htmlFor="image" className='form-label col-sm-4'>Image</label> */}
-                                        {/* <input type='image' className='form-control col-sm-10 w-50' value={credentials.image} placeholder='Capture Image' /> */}
-                                        {/* <Webcam
-                                            audio={false}
-                                            ref={webcamRef}
-                                            screenshotFormat="image/jpeg"
-                                            required
-                                        />
-                                        <br /><br />
-                                        <button className='btn btn-primary' onClick={capture}>Capture</button> */}
-                                        {/* {image && <img src={image} alt="Captured" />} */}
-                                    {/* </div> */}
                                     <button type="submit" className="btn btn-primary">Sign Up</button>
                                 </form>
                                 <div className="btn" onClick={() => navigate('/login')}>Already have an account? Login Here.</div>

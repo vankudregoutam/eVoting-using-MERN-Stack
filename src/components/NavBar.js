@@ -20,11 +20,7 @@ const NavBar = () => {
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} to="/about">About</Link>
                             </li>
                         </ul>
-                        {/* {sessionStorage.getItem('token eVoting Login') ? 
-                        <form className="d-flex" role="search">
-                            <Link to='/login' className="btn btn-primary mx-1" role="button" onClick={sessionStorage.removeItem('token eVoting Login')}>Logout</Link>
-                        </form>:  */}
-                        <form className="d-flex" role="search">
+                        <form className="d-flex">
                             {!sessionStorage.getItem('token eVoting Login') && !sessionStorage.getItem('admin token eVoting') ?
                                 <>
                                     <Link to='/login' className="btn btn-primary mx-1" role="button">Login</Link>
@@ -34,8 +30,6 @@ const NavBar = () => {
                             }
 
                         </form>
-                        {/* } */}
-
                     </div>
                 </div>
             </nav>

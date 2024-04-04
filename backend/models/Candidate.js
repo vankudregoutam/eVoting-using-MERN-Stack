@@ -11,14 +11,8 @@ const addCandidateSchema = new mongoose.Schema(
             required: true,
             unique: true
         },
-        // img: {
-        //     data: Buffer,
-        //     type: String,
-        //     required: true
-        // },
         votes: {
             type: Number,
-            // required: true
         },
         date: {
             type: Date,

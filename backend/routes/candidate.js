@@ -46,10 +46,6 @@ router.put('/updateCandidate/:id', fetchUser, async (req, res) => {
             return res.status(404).send('Candidate Not Found')
         }
 
-        // if (updateCandidate.user.toString() !== req.user.id) {
-        //     return res.status(401).send('Unauthorized Access')
-        // }
-
         updateCandidate = await Candidate.findByIdAndUpdate(req.params.id, { $set: newCandidate }, { new: true })
         res.send(updateCandidate)
     } catch (error) {
@@ -66,11 +62,6 @@ router.delete("/deleteCandidate/:id", fetchUser, async function (req, res) {
         if (!candidate) {
             return res.status(404).send("No candidate found")
         }
-
-        // Allow deletion only if user owns this note
-        // if (candidate.user.toString() !== req.user.id) {
-        //     return res.status(401).send("Unauthorized user");
-        // }
 
         candidate = await Candidate.findByIdAndDelete(req.params.id)
         res.json({ 'Success': 'Note has been deleted Successfully', candidate: candidate })
@@ -102,8 +93,6 @@ router.put("/vote/:id", fetchUser, async (req, res) => {
             { new: true }
         );
 
-        // res.send(updateVote)
-        // res.json(upVote)
     } catch (error) {
         console.error(error.message);
         console.log(error.lineNumber);
@@ -113,22 +102,6 @@ router.put("/vote/:id", fetchUser, async (req, res) => {
 
 // Route 5: Get the Maxmimum Number of Votes aquired by Candidate using GET: "/api/candidate/mavVotesCandidate"
 router.get('/maxVotesCandidate', fetchUser, async (req, res) => {
-    // let candidates = await Candidate.find({});
-
-    // // Find the candidate with the maximum votes using JavaScript
-    // let maxVotesCandidate = null;
-    // let maxVotes = 0;
-
-    // for (const candidate of candidates) {
-    //     if (candidate.votes > maxVotes) {
-    //         // res.send({ data: candidate })
-    //         maxVotesCandidate = candidate
-    //         maxVotes = candidate.votes
-    //     }
-    // }
-
-    // // Return the candidate with the maximum votes
-    // res.json({data: maxVotesCandidate});
 
     const candidates = await Candidate.find({});
 
