@@ -5,32 +5,39 @@ const UserSignUp = () => {
 
     const navigate = useNavigate()
 
-    const [credentials, setCredentials] = useState({ name: '', id: '', dob: '', password: '', cpassword: '', image: '' })
+    const [credentials, setCredentials] = useState({ name: '', id: '', password: '', cpassword: '' })
+    const [dob, setDOB] = useState()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const { name, id, dob, password, cpassword, image } = credentials
+        const { name, id, password, cpassword } = credentials
         const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ name, id, dob, password, cpassword, image })
+            body: JSON.stringify({ name, id, dob, password, cpassword })
         });
         const json = await response.json()
-        console.log(json);
         if (json.success) {
             sessionStorage.setItem('token eVoting Signup', json.authToken)
             navigate('/login')
         } else {
             alert('Invalid credentials')
-            console.error();;
+            alert(json.error)
+            console.error();
         }
     }
 
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
+
+    const handleDate = (e) => {
+        setDOB(e.target.value)
+    }
+
+    // console.log(dob);
 
     return (
         <>
@@ -52,7 +59,7 @@ const UserSignUp = () => {
                                     </div>
                                     <div className="mb-3 row">
                                         <label htmlFor="dob" className="form-label col-sm-4">Date of Birth</label>
-                                        <input type="dob" className="form-control col-sm-10 w-50" autoComplete='off' value={credentials.dob} onChange={onChange} id="dob" name='dob' />
+                                        <input type="date" className="form-control col-sm-10 w-50" autoComplete='off' value={dob} onChange={handleDate} id="dob" name='dob' />
                                     </div>
                                     <div className="mb-3 row">
                                         <label htmlFor="password" className="form-label col-sm-4">Password</label>

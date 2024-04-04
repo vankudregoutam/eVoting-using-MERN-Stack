@@ -8,6 +8,7 @@ const AddCandidate = () => {
     const navigate = useNavigate()
 
     const [candidate, setCandidate] = useState({ name: '', partyname: '' })
+    const [winner, setWinner] = useState('')
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -17,6 +18,18 @@ const AddCandidate = () => {
 
     const onChange = (e) => {
         setCandidate({ ...candidate, [e.target.name]: e.target.value })
+    }
+
+    const handleWinner = async () => {
+        const response = await fetch(`http://localhost:5000/api/candidate/maxVotesCandidate`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": sessionStorage.getItem('admin token eVoting')
+            }
+        })
+        const json = await response.json()
+        setWinner(json.maxVotesCandidate.partyname)
     }
 
     useEffect(() => {
@@ -30,17 +43,21 @@ const AddCandidate = () => {
         <>
             <div className="container my-3">
                 <h2>Add Candidate</h2>
-                <form onSubmit={handleClick}>
+                <form onSubmit={handleClick} className='mb-3'>
                     <div className="mb-3 row">
                         <label htmlFor="name" className="form-label col-sm-2">Name</label>
-                        <input type="text" autoComplete='off' className="form-control col-sm-10 w-50" id="name" name='name' value={candidate.name} onChange={onChange} />
+                        <input type="text" autoComplete='off' className="form-control col-sm-10 w-25" id="name" name='name' value={candidate.name} onChange={onChange} />
                     </div>
                     <div className="mb-3 row">
                         <label htmlFor="partyname" className="form-label col-sm-2">Party Name</label>
-                        <input type="text" autoComplete='off' className="form-control col-sm-10 w-50" id="partyname" name='partyname' value={candidate.partyname} onChange={onChange} />
+                        <input type="text" autoComplete='off' className="form-control col-sm-10 w-25" id="partyname" name='partyname' value={candidate.partyname} onChange={onChange} />
                     </div>
-                    <button disabled={candidate.name.length<5 || candidate.partyname.length<5} type="submit" className="btn btn-success">Add</button>
+                    <button disabled={candidate.name.length < 5 || candidate.partyname.length < 5} type="submit" className="btn btn-success">Add</button>
                 </form>
+                <div className="flex">
+                    <input type="text" disabled className="form-control col-sm-10 w-25 mb-2" name="" id="" value={winner} />
+                    <button className="btn btn-primary" onClick={handleWinner}>Winner</button>
+                </div>
             </div>
         </>
     )

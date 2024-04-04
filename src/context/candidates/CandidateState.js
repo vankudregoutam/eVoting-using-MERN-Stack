@@ -57,7 +57,6 @@ const CandidateState = (props) => {
             }
         });
         const json = response.json()
-        console.log(json);
         const newCandidate = candidates.filter((candidate) => { return candidate._id !== id })
         setCandidates(newCandidate)
     }
@@ -73,7 +72,6 @@ const CandidateState = (props) => {
             body: JSON.stringify({ name, partyname }),
         });
         const json = await response.json();
-        console.log(json);
 
         let newCandidate = JSON.parse(JSON.stringify(candidates))
         for (let index = 0; index < newCandidate.length; index++) {

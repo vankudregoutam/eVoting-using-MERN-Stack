@@ -12,7 +12,7 @@ const UserDetailSchema = new mongoose.Schema(
             unique: true
         },
         dob: {
-            type: String,
+            type: Date,
             required: true
         },
         pass: {

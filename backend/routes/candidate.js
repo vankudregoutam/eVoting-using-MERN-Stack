@@ -66,7 +66,8 @@ router.delete("/deleteCandidate/:id", fetchUser, async function (req, res) {
         candidate = await Candidate.findByIdAndDelete(req.params.id)
         res.json({ 'Success': 'Note has been deleted Successfully', candidate: candidate })
     } catch (err) {
-        console.log(err);
+        console.error(err.message);
+        console.log(err.lineNumber);
         res.status(500).send("Server error!");
     }
 });
@@ -118,7 +119,7 @@ router.get('/maxVotesCandidate', fetchUser, async (req, res) => {
     }
 
     // Return the candidate with the maximum votes
-    res.json({ data: maxVotesCandidate });
+    res.json({ maxVotesCandidate });
 
 })
 

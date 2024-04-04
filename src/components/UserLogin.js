@@ -17,7 +17,6 @@ const UserLogin = () => {
             body: JSON.stringify({ id: credentials.id, password: credentials.password })
         });
         const json = await response.json()
-        console.log(json);
         if (json.success) {
             sessionStorage.setItem('token eVoting Login', json.authToken)
             navigate('/castvote')

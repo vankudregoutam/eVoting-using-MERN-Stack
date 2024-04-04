@@ -53,9 +53,8 @@ const VoteCard = (props) => {
                     }
                 }).then(sessionStorage.removeItem('token eVoting Login'))
                 .then(alert('Your Vote has Successfully Added!'))
-                .then(navigate('/'));
+                .then(navigate('/thanks-for-voting'));
                 const json = await response.json()
-                console.log(json);
             }
         } catch (error) {
             window.alert(error)

@@ -9,6 +9,7 @@ import UserSignUp from './components/UserSignUp';
 import AdminLogin from './components/AdminLogin';
 import NotFoundPage from './components/NotFoundPage';
 import Candidates from './components/Candidates';
+import FinalPage from './components/FinalPage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route exact path='/about' element={<About />} />
             <Route exact path='/adminlogin' element={<AdminLogin />} />
             <Route exact path='/addcandidate' element={<Candidates />} />
+            <Route exact path='/thanks-for-voting' element={<FinalPage />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>

@@ -17,7 +17,6 @@ const AdminLogin = () => {
             body: JSON.stringify({ id: credentials.id, password: credentials.password })
         });
         const json = await response.json()
-        console.log(json);
         if (json.success) {
             sessionStorage.setItem('admin token eVoting', json.authToken)
             navigate('/addcandidate')
