@@ -9,7 +9,7 @@ const UserLogin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`https://evoting-using-mern-stack.onrender.com//api/auth/login`, {
+        const response = await fetch(`https://evoting-using-mern-stack.onrender.com/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
