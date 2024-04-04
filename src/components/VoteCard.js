@@ -45,7 +45,7 @@ const VoteCard = (props) => {
     const vote = async (id, name) => {
         try {
             if (window.confirm(`Do you want the vote to ${name}?`)) {
-                await fetch(`https://evoting-using-mern-stack.netlify.app/api/candidate/vote/${id}`, {
+                await fetch(`https://evoting-using-mern-stack.onrender.com//api/candidate/vote/${id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",

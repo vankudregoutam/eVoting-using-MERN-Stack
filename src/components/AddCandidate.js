@@ -21,7 +21,7 @@ const AddCandidate = () => {
     }
 
     const handleWinner = async () => {
-        const response = await fetch(`https://evoting-using-mern-stack.netlify.app/api/candidate/maxVotesCandidate`, {
+        const response = await fetch(`https://evoting-using-mern-stack.onrender.com//api/candidate/maxVotesCandidate`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
