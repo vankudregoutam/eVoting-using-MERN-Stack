@@ -45,7 +45,7 @@ const VoteCard = (props) => {
     const vote = async (id, name) => {
         try {
             if (window.confirm(`Do you want the vote to ${name}?`)) {
-                const response = await fetch(`http://localhost:5000/api/candidate/vote/${id}`, {
+                await fetch(`http://localhost:5000/api/candidate/vote/${id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -54,7 +54,6 @@ const VoteCard = (props) => {
                 }).then(sessionStorage.removeItem('token eVoting Login'))
                 .then(alert('Your Vote has Successfully Added!'))
                 .then(navigate('/thanks-for-voting'));
-                const json = await response.json()
             }
         } catch (error) {
             window.alert(error)

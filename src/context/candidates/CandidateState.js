@@ -49,21 +49,20 @@ const CandidateState = (props) => {
 
     // Delete Candidate
     const deleteCandidate = async (id) => {
-        const response = await fetch(`${host}/api/candidate/deleteCandidate/${id}`, {
+        await fetch(`${host}/api/candidate/deleteCandidate/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": sessionStorage.getItem('admin token eVoting')
             }
         });
-        const json = response.json()
         const newCandidate = candidates.filter((candidate) => { return candidate._id !== id })
         setCandidates(newCandidate)
     }
 
     // Edit Candidate
     const editCandidate = async (id, name, partyname) => {
-        const response = await fetch(`${host}/api/candidate/updateCandidate/${id}`, {
+        await fetch(`${host}/api/candidate/updateCandidate/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +70,6 @@ const CandidateState = (props) => {
             },
             body: JSON.stringify({ name, partyname }),
         });
-        const json = await response.json();
 
         let newCandidate = JSON.parse(JSON.stringify(candidates))
         for (let index = 0; index < newCandidate.length; index++) {
