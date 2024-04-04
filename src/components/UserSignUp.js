@@ -37,8 +37,6 @@ const UserSignUp = () => {
         setDOB(e.target.value)
     }
 
-    // console.log(dob);
-
     return (
         <>
             <div className='container my-5'>
