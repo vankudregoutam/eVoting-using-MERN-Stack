@@ -11,12 +11,12 @@ const UserSignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { name, id, password, cpassword } = credentials
-        const response = await fetch(`/api/auth/createuser`, {
+        const response = await fetch(`https://evoting-using-mern-stack.onrender.com/api/auth/createuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ name, id, dob, password, cpassword })
+            body: JSON.parse({ name, id, dob, password, cpassword })
         });
         const json = await response.json()
         if (json.success) {
