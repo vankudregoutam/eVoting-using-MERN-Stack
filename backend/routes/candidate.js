@@ -108,7 +108,7 @@ router.get('/maxVotesCandidate', fetchUser, async (req, res) => {
 
     // Find the candidate with the maximum votes using JavaScript
     let maxVotesCandidate;
-    let maxVotes = -1;
+    let maxVotes = 0;
 
     for (const candidate of candidates) {
         if (candidate.votes > maxVotes) {
