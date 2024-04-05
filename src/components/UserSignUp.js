@@ -16,7 +16,7 @@ const UserSignUp = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.parse({name: name, id: id, dob: dob, password: password, cpassword: cpassword })
+            body: JSON.parse([ name, id, dob, password, cpassword ])
         });
         const json = await response.json()
         if (json.success) {
