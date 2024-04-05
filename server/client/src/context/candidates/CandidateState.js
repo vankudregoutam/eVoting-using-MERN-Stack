@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CandidateContext from './candidateContext'
 
 const CandidateState = (props) => {
-    const host = 'https://evoting-using-mern-stack.onrender.com'
+    const host = 'http://localhost:5000'
     const candidatesInitial = []
 
     const [candidates, setCandidates] = useState(candidatesInitial)
