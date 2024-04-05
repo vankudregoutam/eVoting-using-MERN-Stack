@@ -5,7 +5,7 @@ const cors = require('cors');
 connectToMongo()
 
 const app = express()
-const port = 5000
+const port = 'https://evoting-using-mern-stack.onrender.com/'
 
 app.use(cors())
 app.use(express.json())   // used as a middle-ware to use req.body
