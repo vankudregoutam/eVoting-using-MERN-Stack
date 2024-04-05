@@ -37,7 +37,7 @@ router.post('/createuser', [
                 id: req.body.id,
                 dob: req.body.dob,
                 pass: secPass,
-                conPass: secConPass,
+                // conPass: secConPass,
             })
 
             const data = {
