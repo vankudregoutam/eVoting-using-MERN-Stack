@@ -1,7 +1,7 @@
 const connectToMongo = require('./db')
 const express = require('express')
 const cors = require('cors');
-const path = require('path')
+// const path = require('path')
 
 connectToMongo()
 
@@ -19,9 +19,9 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/candidate', require('./routes/candidate'))
 
 // Use the client app
-app.use(express.static(path.join(__dirname, '/client/build')))
+// app.use(express.static(path.join(__dirname, '/client/build')))
 
 // Render client for any path
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/build/index.html')))
+// app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/build/index.html')))
 
 app.listen(port)
