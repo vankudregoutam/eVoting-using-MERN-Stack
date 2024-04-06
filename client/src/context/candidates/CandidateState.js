@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import CandidateContext from './candidateContext'
 
 const CandidateState = (props) => {
-    // const host = 'https://evotingusingmernstack.onrender.com'
+    const host = 'http://localhost:5000'
     const candidatesInitial = []
 
     const [candidates, setCandidates] = useState(candidatesInitial)
 
     // Get Candidate
     const getCandidates = async () => {
-        const response = await fetch(`/api/candidate/fetchallcandidates`, {
+        const response = await fetch(`${host}/api/candidate/fetchallcandidates`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

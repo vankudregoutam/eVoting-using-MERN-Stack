@@ -21,7 +21,7 @@ const AddCandidate = () => {
     }
 
     const handleWinner = async () => {
-        const response = await fetch(`/api/candidate/maxVotesCandidate`, {
+        const response = await fetch(`http://localhost:5000/api/candidate/maxVotesCandidate`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
