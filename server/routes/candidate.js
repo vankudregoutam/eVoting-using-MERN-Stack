@@ -118,7 +118,6 @@ router.get('/maxVotesCandidate', fetchUser, async (req, res) => {
         }
     }
 
-    // Return the candidate with the maximum votes
     res.json({ maxVotesCandidate });
 
 })

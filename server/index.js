@@ -17,7 +17,6 @@ app.use(express.json())   // used as a middle-ware to use req.body
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/candidate', require('./routes/candidate'))
-// app.use('/api/notes', require('./routes/vote'))
 
 // Use the client app
 app.use(express.static(path.join(__dirname, '/client/build')))
@@ -25,6 +24,4 @@ app.use(express.static(path.join(__dirname, '/client/build')))
 // Render client for any path
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/build/index.html')))
 
-app.listen(port, () => {
-    console.log(`eVoting backend listening on port http://localhost:${port}`)
-})
+app.listen(port)
