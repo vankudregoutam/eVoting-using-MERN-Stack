@@ -8,9 +8,15 @@ connectToMongo()
 const app = express()
 const port = 5000
 
-app.use(cors({
-    origin: [`http://localhost:${port}`, 'https://main--evoting-using-mern-stack.netlify.app/']
-}))
+// CORS configuration
+const corsOptions = {
+    origin: 'https://main--evoting-using-mern-stack.netlify.app',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// Enable CORS with the options
+app.use(cors(corsOptions));
+
 app.use(express.json())   // used as a middle-ware to use req.body
 
 // Available Routes
