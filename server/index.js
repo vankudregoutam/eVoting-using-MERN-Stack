@@ -9,7 +9,7 @@ const app = express()
 const port = 5000
 
 app.use(cors({
-    origin: [`http://localhost:${port}`, 'https://evoting-using-mern-stack.onrender.com/']
+    origin: [`http://localhost:${port}`, 'https://main--evoting-using-mern-stack.netlify.app/']
 }))
 app.use(express.json())   // used as a middle-ware to use req.body
 
