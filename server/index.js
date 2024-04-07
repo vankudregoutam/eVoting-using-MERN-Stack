@@ -8,14 +8,8 @@ connectToMongo()
 const app = express()
 const port = 5000
 
-// CORS configuration
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
 // Enable CORS with the options
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json())   // used as a middle-ware to use req.body
 
@@ -23,11 +17,5 @@ app.use(express.json())   // used as a middle-ware to use req.body
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/candidate', require('./routes/candidate'))
-
-// Use the client app
-// app.use(express.static(path.join(__dirname, '/client/build')))
-
-// Render client for any path
-// app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/build/index.html')))
 
 app.listen(port)
