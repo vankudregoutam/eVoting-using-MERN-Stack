@@ -10,7 +10,7 @@ const port = 5000
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://evoting-using-mern-stack.netlify.app',
+    origin: 'https://main--evoting-using-mern-stack.netlify.app',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
