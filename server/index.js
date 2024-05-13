@@ -13,7 +13,7 @@ const buildpath = path.join(_dirname,"../client/build")
 app.use(express.static(buildpath))
 
 // Enable CORS with the options
-app.use(cors({ origin: 'http://3.109.48.232' }));
+app.use(cors({ origin: 'http://65.1.110.176' }));
 
 app.use(express.json())   // used as a middle-ware to use req.body
 
