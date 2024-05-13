@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = 'YOUR_API_KEY'
+const mongoURI = 'mongodb+srv://vankudregoutam15:8yMnYODoawSfVPZ6@cluster0.8aveumu.mongodb.net/eVoting?retryWrites=true&w=majority&appName=Cluster0'
 
 const  connectToMongo = () => {
     mongoose.connect(mongoURI)
