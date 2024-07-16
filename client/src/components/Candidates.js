@@ -10,7 +10,7 @@ const Candidates = () => {
     const context = useContext(candidateContext)
     const { candidates, getCandidates, editCandidate } = context
 
-    const [candidate, setCandidate] = useState({ id: '', ename: '', epartyname: '' })
+    const [candidate, setCandidate] = useState({ id: '', ename: '', epartyname: '', eurl: '' })
 
     useEffect(() => {
         if (sessionStorage.getItem('admin token eVoting')) {
@@ -24,11 +24,11 @@ const Candidates = () => {
 
     const updateCandidate = (currentCandidate) => {
         ref.current.click()
-        setCandidate({ id: currentCandidate._id, ename: currentCandidate.name, epartyname: currentCandidate.partyname })
+        setCandidate({ id: currentCandidate._id, ename: currentCandidate.name, epartyname: currentCandidate.partyname, eurl: currentCandidate.url })
     }
 
     const handleClick = (e) => {
-        editCandidate(candidate.id, candidate.ename, candidate.epartyname)
+        editCandidate(candidate.id, candidate.ename, candidate.epartyname, candidate.eurl)
         refClose.current.click()
     }
 
@@ -63,6 +63,10 @@ const Candidates = () => {
                                 <div className="mb-3">
                                     <label htmlFor="epartyname" className="form-label">Party Name</label>
                                     <input type="text" autoComplete='off' className="form-control" id="epartyname" name='epartyname' value={candidate.epartyname} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="eurl" className="form-label">Image URL</label>
+                                    <input type="text" autoComplete='off' className="form-control" id="eurl" name='eurl' value={candidate.eurl} onChange={onChange} />
                                 </div>
                             </form>
                         </div>
