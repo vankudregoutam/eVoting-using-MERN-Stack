@@ -12,8 +12,33 @@ import FinalPage from './components/FinalPage';
 import Demo from './components/Demo';
 import Carousel from './components/Carousel';
 import Abc from './components/Abc';
+import { useEffect, useState } from 'react';
 
 const App = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const userAgent = navigator.userAgent;
+      const mobileDevices = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+      setIsMobile(mobileDevices.test(userAgent));
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div style={{ textAlign: 'center', padding: '20px' }}>
+        <h1>This site is only accessible from a desktop or laptop.</h1>
+      </div>
+    );
+  }
   return (
     <CandidateState>
       <Router>
