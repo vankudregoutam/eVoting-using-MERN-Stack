@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const UserSignUp = () => {
 
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
     const navigate = useNavigate()
 
     const [credentials, setCredentials] = useState({ name: '', id: '', password: '', cpassword: '' })
@@ -11,7 +12,7 @@ const UserSignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { name, id, password, cpassword } = credentials
-        const response = await fetch(`${process.env.BACKEND_URI}/createuser`, {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
