@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CandidateContext from './candidateContext'
 
 const CandidateState = (props) => {
-    const host = ${process.env.BACKEND_URI}
+    const host = process.env.BACKEND_URI
     const candidatesInitial = []
 
     const [candidates, setCandidates] = useState(candidatesInitial)
