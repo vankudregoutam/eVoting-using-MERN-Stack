@@ -5,7 +5,7 @@ const AdminLogin = () => {
 
     const navigate = useNavigate()
 
-    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com/'
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com'
 
     const [credentials, setCredentials] = useState({ id: '', password: '' })
 
