@@ -9,7 +9,7 @@ const AdminLogin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`${process.env.BACKEND_URI}/admin-login`, {
+        const response = await fetch(`${process.env.BACKEND_URI}/api/auth/admin-login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
