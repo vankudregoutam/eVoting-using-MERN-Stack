@@ -14,6 +14,9 @@ const addCandidateSchema = new mongoose.Schema(
         votes: {
             type: Number,
         },
+        url: {
+            type: String,
+        },
         date: {
             type: Date,
             default: Date.now
