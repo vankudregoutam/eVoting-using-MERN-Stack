@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const UserSignUp = () => {
 
-    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com/'
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com'
     const navigate = useNavigate()
 
     const [credentials, setCredentials] = useState({ name: '', id: '', password: '', cpassword: '' })
