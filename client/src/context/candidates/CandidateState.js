@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import CandidateContext from './candidateContext'
 
 const CandidateState = (props) => {
-    const host = process.env.BACKEND_URI
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
     const candidatesInitial = []
 
     const [candidates, setCandidates] = useState(candidatesInitial)
 
     // Get Candidate
     const getCandidates = async () => {
-        const response = await fetch(`${host}/fetchallcandidates`, {
+        const response = await fetch(`${host}/api/candidate/fetchallcandidates`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const CandidateState = (props) => {
     
     // Get Candidate for Voters
     const getCandidatesforVoters = async () => {
-        const response = await fetch(`${host}/fetchallcandidates`, {
+        const response = await fetch(`${host}/api/candidate/fetchallcandidates`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const CandidateState = (props) => {
 
     // Add Candidate
     const addCandidate = async (name, partyname) => {
-        const response = await fetch(`${host}/addCandidate`, {
+        const response = await fetch(`${host}/api/candidate/addCandidate`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const CandidateState = (props) => {
 
     // Delete Candidate
     const deleteCandidate = async (id) => {
-        await fetch(`${host}/deleteCandidate/${id}`, {
+        await fetch(`${host}/api/candidate/deleteCandidate/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const CandidateState = (props) => {
 
     // Edit Candidate
     const editCandidate = async (id, name, partyname) => {
-        await fetch(`${host}/updateCandidate/${id}`, {
+        await fetch(`${host}/api/candidate/updateCandidate/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
