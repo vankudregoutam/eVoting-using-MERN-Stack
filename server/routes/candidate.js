@@ -11,13 +11,13 @@ router.post('/addCandidate', fetchUser, [
     body('partyname').isLength({ min: 5 }).withMessage('Enter the party name')
 ], async (req, res) => {
     try {
-        const { name, partyname } = req.body
+        const { name, partyname, url } = req.body
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() })
         }
         const candidate = new Candidate({
-            name, partyname, user: req.user.id, votes: 0
+            name, partyname, url, user: req.user.id, votes: 0
         })
         const savedCandidate = await candidate.save()
         res.json(savedCandidate)
@@ -29,7 +29,7 @@ router.post('/addCandidate', fetchUser, [
 
 // Route 2: Editing the Candidate using: PUT "/api/candidate/updateCandidate/:id"
 router.put('/updateCandidate/:id', fetchUser, async (req, res) => {
-    const { name, partyname } = req.body
+    const { name, partyname, url } = req.body
     try {
         const newCandidate = {}
         if (name) {
@@ -37,6 +37,9 @@ router.put('/updateCandidate/:id', fetchUser, async (req, res) => {
         }
         if (partyname) {
             newCandidate.partyname = partyname
+        }
+        if (url) {
+            newCandidate.url = url
         }
 
         // Find the candidate to be updated & update it
