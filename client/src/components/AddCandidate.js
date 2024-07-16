@@ -3,7 +3,7 @@ import candidateContext from '../context/candidates/candidateContext'
 import { useNavigate } from 'react-router-dom'
 
 const AddCandidate = () => {
-    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com/'
     const context = useContext(candidateContext)
     const { addCandidate } = context
     const navigate = useNavigate()
