@@ -34,14 +34,14 @@ const CandidateState = (props) => {
     }
 
     // Add Candidate
-    const addCandidate = async (name, partyname) => {
+    const addCandidate = async (name, partyname, url) => {
         const response = await fetch(`${host}/api/candidate/addCandidate`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": sessionStorage.getItem('admin token eVoting')
             },
-            body: JSON.stringify({ name, partyname }),
+            body: JSON.stringify({ name, partyname, url }),
         });
         const candidate = await response.json();
         setCandidates(candidates.concat(candidate))
@@ -61,14 +61,14 @@ const CandidateState = (props) => {
     }
 
     // Edit Candidate
-    const editCandidate = async (id, name, partyname) => {
+    const editCandidate = async (id, name, partyname, url) => {
         await fetch(`${host}/api/candidate/updateCandidate/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": sessionStorage.getItem('admin token eVoting')
             },
-            body: JSON.stringify({ name, partyname }),
+            body: JSON.stringify({ name, partyname, url }),
         });
 
         let newCandidate = JSON.parse(JSON.stringify(candidates))
@@ -77,6 +77,7 @@ const CandidateState = (props) => {
             if (element._id === id) {
                 newCandidate[index].name = name
                 newCandidate[index].partyname = partyname
+                newCandidate[index].url = url
                 break
             }
         }
