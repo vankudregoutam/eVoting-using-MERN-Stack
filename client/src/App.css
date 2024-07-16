@@ -9,6 +9,15 @@
   }
 }
 
+#elContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  margin-left: -7%;
+  padding-bottom: 3%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
