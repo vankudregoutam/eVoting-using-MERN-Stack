@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 
 const UserLogin = () => {
 
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
     const navigate = useNavigate()
 
     const [credentials, setCredentials] = useState({ id: '', password: '' })
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`${process.env.BACKEND_URI}/login`, {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
