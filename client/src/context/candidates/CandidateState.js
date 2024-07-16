@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CandidateContext from './candidateContext'
 
 const CandidateState = (props) => {
-    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com/'
     const candidatesInitial = []
 
     const [candidates, setCandidates] = useState(candidatesInitial)
