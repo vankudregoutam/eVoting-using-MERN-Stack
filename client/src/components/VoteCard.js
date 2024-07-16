@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const VoteCard = (props) => {
 
     const { candidate } = props
-
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
     const navigate = useNavigate()
 
     const [token, setToken] = useState('');
@@ -45,7 +45,7 @@ const VoteCard = (props) => {
     const vote = async (id, name) => {
         try {
             if (window.confirm(`Do you want the vote to ${name}?`)) {
-                await fetch(`${process.env.BACKEND_URI}/vote/${id}`, {
+                await fetch(`${host}/api/candidate/vote/${id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
