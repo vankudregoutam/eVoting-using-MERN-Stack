@@ -65,6 +65,7 @@ const VoteCard = (props) => {
             <div className='col-md-3'>
                 <div className="card my-3">
                     <div className="card-body">
+                        <img className="card-img-top" style={{ borderBottomLeftRadius: '5px', borderBottomRightRadius: '5px', marginBottom: '8px' }} src={candidate.url} alt={candidate.name} />
                         <h5 className="card-title">{candidate.partyname}</h5>
                         <p className="card-text">{candidate.name}</p>
                         {isButtonDisabled ?
