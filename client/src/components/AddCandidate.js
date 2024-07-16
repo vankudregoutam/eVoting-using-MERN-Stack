@@ -8,13 +8,13 @@ const AddCandidate = () => {
     const { addCandidate } = context
     const navigate = useNavigate()
 
-    const [candidate, setCandidate] = useState({ name: '', partyname: '' })
+    const [candidate, setCandidate] = useState({ name: '', partyname: '', url: '' })
     const [winner, setWinner] = useState('')
 
     const handleClick = (e) => {
         e.preventDefault()
-        addCandidate(candidate.name, candidate.partyname)
-        setCandidate({ name: '', partyname: '' })
+        addCandidate(candidate.name, candidate.partyname, candidate.url)
+        setCandidate({ name: '', partyname: '', url: '' })
     }
 
     const onChange = (e) => {
@@ -52,6 +52,10 @@ const AddCandidate = () => {
                     <div className="mb-3 row">
                         <label htmlFor="partyname" className="form-label col-sm-2">Party Name</label>
                         <input type="text" autoComplete='off' className="form-control col-sm-10 w-25" id="partyname" name='partyname' value={candidate.partyname} onChange={onChange} />
+                    </div>
+                    <div className="mb-3 row">
+                        <label htmlFor="url" className="form-label col-sm-2">Image URL</label>
+                        <input type="text" autoComplete='off' className="form-control col-sm-10 w-25" id="url" name='url' value={candidate.url} onChange={onChange} />
                     </div>
                     <button disabled={candidate.name.length < 5 || candidate.partyname.length < 5} type="submit" className="btn btn-success">Add</button>
                 </form>
