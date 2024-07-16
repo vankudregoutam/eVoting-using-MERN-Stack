@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const VoteCard = (props) => {
 
     const { candidate } = props
-    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack-backend.onrender.com/'
     const navigate = useNavigate()
 
     const [token, setToken] = useState('');
