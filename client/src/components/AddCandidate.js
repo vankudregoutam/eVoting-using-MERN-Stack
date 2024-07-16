@@ -3,6 +3,7 @@ import candidateContext from '../context/candidates/candidateContext'
 import { useNavigate } from 'react-router-dom'
 
 const AddCandidate = () => {
+    const host = process.env.BACKEND_URI || 'https://evoting-using-mern-stack.onrender.com'
     const context = useContext(candidateContext)
     const { addCandidate } = context
     const navigate = useNavigate()
@@ -21,7 +22,7 @@ const AddCandidate = () => {
     }
 
     const handleWinner = async () => {
-        const response = await fetch(`${process.env.BACKEND_URI}/maxVotesCandidate`, {
+        const response = await fetch(`${host}/api/candidate/maxVotesCandidate`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json",
