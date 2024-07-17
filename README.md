@@ -31,6 +31,8 @@ Your app is ready to be deployed!
 
 ## Execution of the code
 
+Live link: https://e-voting-using-mern-stack.vercel.app/
+
 https://github.com/vankudregoutam/eVoting-using-MERN-Stack/assets/79298277/2966b772-78e2-43f8-ba9f-ba3ad8b8e8cf
 
 
