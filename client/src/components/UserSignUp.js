@@ -35,8 +35,22 @@ const UserSignUp = () => {
     }
 
     const handleDate = (e) => {
-        setDOB(e.target.value)
-    }
+        const selectedDate = new Date(e.target.value);
+        const today = new Date();
+        let age = today.getFullYear() - selectedDate.getFullYear();
+        const monthDiff = today.getMonth() - selectedDate.getMonth();
+        const dayDiff = today.getDate() - selectedDate.getDate();
+
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            age--;
+        }
+
+        if (age < 18) {
+            window.alert('You must be at least 18 years old.')
+        }
+
+        setDOB(e.target.value);
+    };
 
     return (
         <>
