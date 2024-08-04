@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CircleLoader } from 'react-spinners'
 
 const UserLogin = () => {
 
@@ -18,6 +19,9 @@ const UserLogin = () => {
             body: JSON.stringify({ id: credentials.id, password: credentials.password })
         });
         const json = await response.json()
+        if (!json) {
+            <CircleLoader />
+        }
         if (json.success) {
             sessionStorage.setItem('token eVoting Login', json.authToken)
             navigate('/castvote')
